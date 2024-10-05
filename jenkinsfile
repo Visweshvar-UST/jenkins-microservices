@@ -17,7 +17,7 @@ pipeline {
             }		
 		stage('Deploy') {			
 			steps { bat "docker build -t authentication-service-image ."			    
-			        bat "docker run -p 8090:8090 -d --name authentication-service-container authentication-service-image"}		
+			        bat "docker run -p 8090:8090 -d --network app-network --name authentication-sr authentication-service-image"}		
 		}	
     }
 }
