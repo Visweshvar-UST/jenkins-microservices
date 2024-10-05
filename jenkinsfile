@@ -17,7 +17,7 @@ pipeline {
             }		
 		stage('Deploy') {			
 			steps { bat "docker build -t employee-s1-image ."			    
-			        bat "docker run -p 8082:8082 -d --name employee-s1-container employee-s1-image"}		
+			        bat "docker run -p 8082:8082 -d --network app-network --name employee-sr employee-s1-image"}		
 		}	
     }
 }
