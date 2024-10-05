@@ -17,7 +17,7 @@ pipeline {
             }		
 		stage('Deploy') {			
 			steps { bat "docker build -t config-server-image ."			    
-			        bat "docker run -p 8088:8088 -d --name config-server-container config-server-image"}		
+			        bat "docker run -p 8088:8088 -d --network app-network --name config-sr config-server-image"}		
 		}	
     }
 }
